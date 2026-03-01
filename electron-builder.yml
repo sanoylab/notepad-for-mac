@@ -1,0 +1,19 @@
+appId: com.sanoylab.notepad-for-mac
+productName: Notepad for Mac
+copyright: "Copyright © 2024 sanoylab"
+directories:
+  output: dist
+mac:
+  category: public.app-category.productivity
+  icon: assets/icon.icns
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+dmg:
+  title: "Notepad for Mac"
+fileAssociations:
+  - ext: txt
+    name: Text Document
+    role: Editor

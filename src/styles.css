@@ -1,0 +1,210 @@
+/* ─── Reset & Base ──────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  color: #000;
+}
+
+/* ─── App Shell ─────────────────────────────────────────────────────────────── */
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+/* ─── Editor ────────────────────────────────────────────────────────────────── */
+#editor {
+  flex: 1;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 4px 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: pre;
+  overflow-x: auto;
+  overflow-y: auto;
+  background: #fff;
+  color: #000;
+  tab-size: 4;
+  -webkit-font-smoothing: auto;
+}
+
+#editor:focus {
+  outline: none;
+}
+
+/* ─── Status Bar ────────────────────────────────────────────────────────────── */
+#status-bar {
+  height: 20px;
+  background: #f0f0f0;
+  border-top: 1px solid #d0d0d0;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 11px;
+  color: #555;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+#status-bar.hidden {
+  display: none;
+}
+
+#line-col {
+  margin-left: auto;
+}
+
+/* ─── Dialogs ───────────────────────────────────────────────────────────────── */
+.dialog {
+  position: fixed;
+  background: #fff;
+  border: 1px solid #aaa;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  min-width: 320px;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dialog.hidden {
+  display: none;
+}
+
+.dialog-header {
+  background: #f0f0f0;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: default;
+  user-select: none;
+}
+
+.dialog-header button {
+  background: none;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  color: #666;
+  padding: 0 2px;
+  line-height: 1;
+}
+
+.dialog-header button:hover {
+  color: #000;
+}
+
+.dialog-body {
+  padding: 12px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dialog-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dialog-row label {
+  min-width: 90px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.dialog-row input[type="text"],
+.dialog-row input[type="number"],
+.dialog-row select {
+  flex: 1;
+  border: 1px solid #999;
+  padding: 2px 4px;
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+  border-radius: 2px;
+}
+
+.dialog-row input[type="text"]:focus,
+.dialog-row input[type="number"]:focus,
+.dialog-row select:focus {
+  border-color: #0078d4;
+  box-shadow: 0 0 0 1px #0078d4;
+}
+
+.dialog-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 2px;
+}
+
+.dialog-options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.dialog-buttons button {
+  min-width: 80px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-family: inherit;
+  border: 1px solid #999;
+  background: #f0f0f0;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.dialog-buttons button:hover {
+  background: #e0e0e0;
+  border-color: #666;
+}
+
+.dialog-buttons button:active {
+  background: #d0d0d0;
+}
+
+/* Font preview */
+.font-preview {
+  border: 1px solid #ccc;
+  padding: 8px;
+  min-height: 40px;
+  background: #fff;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 2px;
+  color: #333;
+}
+
+/* ─── Find highlight ────────────────────────────────────────────────────────── */
+/* (Textarea doesn't support native highlights; we use selection instead) */

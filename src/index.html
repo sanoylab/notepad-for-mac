@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+  <title>Untitled - Notepad for Mac</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <textarea
+      id="editor"
+      spellcheck="false"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      aria-label="Text editor"
+    ></textarea>
+    <div id="status-bar">
+      <span id="line-col">Ln 1, Col 1</span>
+    </div>
+  </div>
+
+  <!-- Find dialog -->
+  <div id="find-dialog" class="dialog hidden" role="dialog" aria-label="Find">
+    <div class="dialog-header">
+      <span>Find</span>
+      <button id="find-close" aria-label="Close">✕</button>
+    </div>
+    <div class="dialog-body">
+      <div class="dialog-row">
+        <label for="find-input">Find what:</label>
+        <input type="text" id="find-input" autocomplete="off">
+      </div>
+      <div class="dialog-options">
+        <label><input type="checkbox" id="find-case"> Match case</label>
+        <label><input type="checkbox" id="find-wrap" checked> Wrap around</label>
+      </div>
+      <div class="dialog-buttons">
+        <button id="find-next-btn">Find Next</button>
+        <button id="find-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Replace dialog -->
+  <div id="replace-dialog" class="dialog hidden" role="dialog" aria-label="Replace">
+    <div class="dialog-header">
+      <span>Replace</span>
+      <button id="replace-close" aria-label="Close">✕</button>
+    </div>
+    <div class="dialog-body">
+      <div class="dialog-row">
+        <label for="replace-find-input">Find what:</label>
+        <input type="text" id="replace-find-input" autocomplete="off">
+      </div>
+      <div class="dialog-row">
+        <label for="replace-with-input">Replace with:</label>
+        <input type="text" id="replace-with-input" autocomplete="off">
+      </div>
+      <div class="dialog-options">
+        <label><input type="checkbox" id="replace-case"> Match case</label>
+      </div>
+      <div class="dialog-buttons">
+        <button id="replace-find-btn">Find Next</button>
+        <button id="replace-btn">Replace</button>
+        <button id="replace-all-btn">Replace All</button>
+        <button id="replace-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Go To Line dialog -->
+  <div id="goto-dialog" class="dialog hidden" role="dialog" aria-label="Go To Line">
+    <div class="dialog-header">
+      <span>Go To Line</span>
+      <button id="goto-close" aria-label="Close">✕</button>
+    </div>
+    <div class="dialog-body">
+      <div class="dialog-row">
+        <label for="goto-input">Line number:</label>
+        <input type="number" id="goto-input" min="1" style="width: 80px;">
+      </div>
+      <div class="dialog-buttons">
+        <button id="goto-go-btn">Go To</button>
+        <button id="goto-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font dialog -->
+  <div id="font-dialog" class="dialog hidden" role="dialog" aria-label="Font">
+    <div class="dialog-header">
+      <span>Font</span>
+      <button id="font-close" aria-label="Close">✕</button>
+    </div>
+    <div class="dialog-body">
+      <div class="dialog-row">
+        <label for="font-family">Font:</label>
+        <select id="font-family">
+          <option>Courier New</option>
+          <option>Consolas</option>
+          <option>Menlo</option>
+          <option>Monaco</option>
+          <option>SF Mono</option>
+          <option>Lucida Console</option>
+          <option>Arial</option>
+          <option>Helvetica</option>
+          <option>Times New Roman</option>
+          <option>Georgia</option>
+        </select>
+      </div>
+      <div class="dialog-row">
+        <label for="font-style">Style:</label>
+        <select id="font-style">
+          <option>Regular</option>
+          <option>Bold</option>
+          <option>Italic</option>
+          <option>Bold Italic</option>
+        </select>
+      </div>
+      <div class="dialog-row">
+        <label for="font-size">Size:</label>
+        <select id="font-size">
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option selected>12</option>
+          <option>14</option>
+          <option>16</option>
+          <option>18</option>
+          <option>20</option>
+          <option>24</option>
+          <option>36</option>
+          <option>48</option>
+          <option>72</option>
+        </select>
+      </div>
+      <div class="font-preview" id="font-preview">AaBbYyZz 0123</div>
+      <div class="dialog-buttons">
+        <button id="font-ok-btn">OK</button>
+        <button id="font-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

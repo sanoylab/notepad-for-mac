@@ -1,0 +1,19 @@
+{
+  "name": "notepad-for-mac",
+  "version": "1.0.0",
+  "description": "A faithful clone of classic Windows Notepad for macOS",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "pack": "electron-builder --dir"
+  },
+  "build": "electron-builder.yml",
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "keywords": ["notepad", "mac", "electron", "text-editor"],
+  "author": "sanoylab",
+  "license": "MIT"
+}
