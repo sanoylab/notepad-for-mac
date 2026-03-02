@@ -8,12 +8,16 @@
     "build": "electron-builder",
     "pack": "electron-builder --dir"
   },
-  "build": "electron-builder.yml",
   "devDependencies": {
     "electron": "^29.0.0",
     "electron-builder": "^24.0.0"
   },
-  "keywords": ["notepad", "mac", "electron", "text-editor"],
+  "keywords": [
+    "notepad",
+    "mac",
+    "electron",
+    "text-editor"
+  ],
   "author": "sanoylab",
   "license": "MIT"
 }
