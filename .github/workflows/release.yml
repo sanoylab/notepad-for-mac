@@ -24,8 +24,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build DMG
-        run: npm run build
+      - name: Build DMGs (x64 then arm64)
+        run: |
+          rm -rf dist
+          npx electron-builder --mac dmg --x64
+          npx electron-builder --mac dmg --arm64
 
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
