@@ -1,6 +1,6 @@
 {
   "name": "notepad-for-mac",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A faithful clone of classic Windows Notepad for macOS",
   "main": "src/main.js",
   "scripts": {
